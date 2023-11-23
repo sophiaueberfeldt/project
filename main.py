@@ -4,10 +4,15 @@ import pygame
 from pygame.locals import QUIT
 
 pygame.init() #Initializes pygame
-width, height = 800,  600
+pygame.font.init()
 
+print(pygame.font.get_fonts())
+
+width = 800
+height = 600
 backgroundColor = [(130, 17, 38),(0, 0, 0)]
 
+gameFont = pygame.font.SysFont('arial',100)
 screen = pygame.display.set_mode((width, height))
 
 from pygame.locals import(
@@ -22,8 +27,15 @@ from pygame.locals import(
     QUIT
 )
 
+rat1= pygame.image.load("img.png")
+ratRect = rat1.get_rect()
+
+text_surface = gameFont.render('Souper Rat Game', False, (0, 0, 0))
+
 screen.fill(backgroundColor[0])
+screen.blit(text_surface, (0,0))
 button = pygame.draw.rect(screen, (0,0,0), (495, 405, 250, 100)) #Draws in order
+#screen.blit(rat1,ratRect)
 pygame.display.flip()
 
 running =True
