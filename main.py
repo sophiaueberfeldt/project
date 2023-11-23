@@ -22,10 +22,14 @@ from pygame.locals import(
     QUIT
 )
 
+screen.fill(backgroundColor[0])
+button = pygame.draw.rect(screen, (0,0,0), (495, 405, 250, 100)) #Draws in order
+pygame.display.flip()
 
 running =True
 
 while running == True:
+
 
     #in the event the user clicks the window close button
     for event in pygame.event.get():
@@ -34,11 +38,13 @@ while running == True:
 
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse = pygame.mouse.get_pos()
+            pygame.Rect.collidepoint(button, mouse[0],mouse[1])
+
+            if pygame.Rect.collidepoint(button, mouse[0],mouse[1]) == True:
+                screen.fill(backgroundColor[1])
+                pygame.display.flip()
 
 
-    screen.fill(backgroundColor[0])
-    pygame.draw.rect(screen, (0,0,0), (200, 50, 200, 200)) #Draws in order
-    pygame.display.flip()
     # time.sleep(1)
     # screen.fill(backgroundColor[1])
     # pygame.display.flip()
