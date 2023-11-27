@@ -28,7 +28,7 @@ gameFont = pygame.font.SysFont('Verdana',100)
 screen = pygame.display.set_mode((width, height))
 
 
-rat1= pygame.image.load("img.png")
+rat1= pygame.image.load("img_1.png")
 ratRect = rat1.get_rect()
 
 
@@ -48,7 +48,7 @@ screen.blit(game, (450,150))
 
 button = pygame.draw.rect(screen, (218,165,32), (495, 405, 250, 100))
 screen.blit(startButton,(491,395))
-#screen.blit(rat1,ratRect)
+screen.blit(rat1,ratRect)
 pygame.display.flip()
 
 
