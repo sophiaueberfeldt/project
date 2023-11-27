@@ -27,7 +27,7 @@ from pygame.locals import(
     QUIT
 )
 
-rat1= pygame.image.load("img.png")
+rat1= pygame.image.load("Roll.png")
 ratRect = rat1.get_rect()
 
 souperRat = gameFont.render('Souper Rat', False, (0, 0, 0))
