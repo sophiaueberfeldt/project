@@ -6,7 +6,7 @@ from pygame.locals import QUIT
 pygame.init() #Initializes pygame
 pygame.font.init()
 
-width = 1000
+width = 800
 height = 800
 backgroundColor = [(130, 17, 38),(0, 0, 0), (159, 131, 111)]
 
@@ -44,26 +44,16 @@ screen.blit(startButton,(491,395))
 screen.blit(rat1,ratRect)
 pygame.display.flip()
 
-#________________________________
-#Loading Screen
-
-def loadingScreen():
-
-    screen.fill(backgroundColor[2])
-    pygame.draw.circle(screen, (255,255,255), (500,400), 200)
-    pygame.display.flip()
-
-
-#________________________________
-
 #Training User Page
 
-def trainPage():
+def trainPage(event):
     screen.fill(backgroundColor[1])
-    pygame.display.flip()
 
-    if event.type == pygame.K_SPACE:
-        pass
+    pygame.display.flip()
+    if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_SPACE:
+            screen.fill('white')
+            pygame.display.flip()
 
 
 running =True
@@ -85,8 +75,8 @@ while running == True:
 
             if pygame.Rect.collidepoint(button, mouse[0],mouse[1]) == True:
                 loadingScreen()
-                time.sleep(4)
-                trainPage()
+                time.sleep(2)
+                trainPage(event)
 
     # time.sleep(1)
     # screen.fill(backgroundColor[1])
