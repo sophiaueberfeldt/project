@@ -6,8 +6,8 @@ from pygame.locals import QUIT
 pygame.init() #Initializes pygame
 pygame.font.init()
 
-width = 800
-height = 600
+width = 1000
+height = 800
 backgroundColor = [(130, 17, 38),(0, 0, 0), (159, 131, 111)]
 
 from pygame.locals import(
@@ -19,12 +19,13 @@ from pygame.locals import(
     K_a,
     K_s,
     K_d,
+    K_SPACE,
     QUIT
 )
 gameFont = pygame.font.SysFont('Verdana',100)
 screen = pygame.display.set_mode((width, height))
 
-rat1= pygame.image.load("Roll.png")
+rat1= pygame.image.load("img_1.png")
 ratRect = rat1.get_rect()
 
 #Title
@@ -40,7 +41,7 @@ screen.blit(game, (450,150))
 
 button = pygame.draw.rect(screen, (218,165,32), (495, 405, 250, 100))
 screen.blit(startButton,(491,395))
-#screen.blit(rat1,ratRect)
+screen.blit(rat1,ratRect)
 pygame.display.flip()
 
 #________________________________
@@ -49,6 +50,7 @@ pygame.display.flip()
 def loadingScreen():
 
     screen.fill(backgroundColor[2])
+    pygame.draw.circle(screen, (255,255,255), (500,400), 200)
     pygame.display.flip()
 
 
@@ -58,7 +60,10 @@ def loadingScreen():
 
 def trainPage():
     screen.fill(backgroundColor[1])
+    pygame.display.flip()
 
+    if event.type == pygame.K_SPACE:
+        pass
 
 
 running =True
@@ -79,9 +84,9 @@ while running == True:
             pygame.Rect.collidepoint(button, mouse[0],mouse[1])
 
             if pygame.Rect.collidepoint(button, mouse[0],mouse[1]) == True:
+                loadingScreen()
+                time.sleep(4)
                 trainPage()
-                pygame.display.flip()
-
 
     # time.sleep(1)
     # screen.fill(backgroundColor[1])
