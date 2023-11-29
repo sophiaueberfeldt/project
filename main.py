@@ -47,7 +47,7 @@ while running == True:
             pygame.Rect.collidepoint(button, mouse[0],mouse[1])
 
             if pygame.Rect.collidepoint(button, mouse[0],mouse[1]) == True:
-                back.draw("trainPage")
+                back.draw('kitchen')
 
 
     # time.sleep(1)

@@ -59,4 +59,8 @@ def draw(scene):
 
 
     if drawscene == 'kitchen':
-        pass #import the photo and
+        room1= pygame.image.load("new size backroom.png")
+        roomRect = room1.get_rect()
+        screen.blit(room1,roomRect)
+        pygame.display.flip()
+
