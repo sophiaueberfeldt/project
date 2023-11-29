@@ -26,7 +26,7 @@ from pygame.locals import(
 gameFont = pygame.font.SysFont('Verdana',100)
 screen = pygame.display.set_mode((width, height))
 
-back.draw("startingScreen")
+back.draw("startingScreen", screen, gameFont)
 button = pygame.draw.rect(screen, (218,165,32), (495, 405, 250, 100))
 
 running =True
@@ -47,7 +47,7 @@ while running == True:
             pygame.Rect.collidepoint(button, mouse[0],mouse[1])
 
             if pygame.Rect.collidepoint(button, mouse[0],mouse[1]) == True:
-                back.draw('kitchen')
+                back.draw('trainPage', screen, gameFont)
 
 
     # time.sleep(1)
