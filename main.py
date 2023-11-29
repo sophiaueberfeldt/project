@@ -1,6 +1,7 @@
 import sys
 import time
 import pygame
+import background as back
 from pygame.locals import QUIT
 
 pygame.init() #Initializes pygame
@@ -25,36 +26,8 @@ from pygame.locals import(
 gameFont = pygame.font.SysFont('Verdana',100)
 screen = pygame.display.set_mode((width, height))
 
-rat1= pygame.image.load("img_1.png")
-ratRect = rat1.get_rect()
-
-#Title
-souperRat = gameFont.render('Souper Rat', False, (218,165,32))
-game = gameFont.render('Game',False, (218,165,32) )
-
-startButton = gameFont.render('Start', False, (0,0,0))
-
-#Start Screen (Draws in order)
-screen.fill(backgroundColor[0])
-screen.blit(souperRat, (200,25))
-screen.blit(game, (450,150))
-
+back.draw("startingScreen")
 button = pygame.draw.rect(screen, (218,165,32), (495, 405, 250, 100))
-screen.blit(startButton,(491,395))
-screen.blit(rat1,ratRect)
-pygame.display.flip()
-
-#Training User Page
-
-def trainPage(event):
-    screen.fill(backgroundColor[1])
-
-    pygame.display.flip()
-    if event.type == pygame.KEYDOWN:
-        if event.key == pygame.K_SPACE:
-            screen.fill('white')
-            pygame.display.flip()
-
 
 running =True
 
@@ -74,9 +47,8 @@ while running == True:
             pygame.Rect.collidepoint(button, mouse[0],mouse[1])
 
             if pygame.Rect.collidepoint(button, mouse[0],mouse[1]) == True:
-                loadingScreen()
-                time.sleep(2)
-                trainPage(event)
+                back.draw("trainPage")
+
 
     # time.sleep(1)
     # screen.fill(backgroundColor[1])
